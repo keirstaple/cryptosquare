@@ -1,13 +1,13 @@
 var triangle = function (sideOne, sideTwo, sideThree){
   if (isTriangle(sideOne, sideTwo, sideThree)){
-    return triangleType(sideOne, sideTwo, sideThree)
+    return triangleType(sideOne, sideTwo, sideThree);
   } else {
-    return "These sides do not a triangle make.";
+    return "not a triangle.";
   }
 };
 
 var isTriangle = function(sideOne, sideTwo, sideThree) {
-  return sideOne <= (sideTwo + sideThree) && sideTwo <= (sideThree + sideOne) && sideThree <= (sideOne + sideTwo)
+  return sideOne <= (sideTwo + sideThree) && sideTwo <= (sideThree + sideOne) && sideThree <= (sideOne + sideTwo);
 };
 
 var triangleType = function(sideOne, sideTwo, sideThree){
@@ -18,26 +18,18 @@ var triangleType = function(sideOne, sideTwo, sideThree){
   } else {
     return "scalene";
   }
-  } else {
-    return "These sides do not a triangle make.";
-  }
 }
 
-
-
 $(document).ready(function() {
-  $("form#triangle").submit(function(event) {
-
+  $("form#questions").submit(function(event) {
+    debugger;
     var sideOne = parseInt($("input#sideOne").val());
     var sideTwo = parseInt($("input#sideTwo").val());
     var sideThree = parseInt($("input#sideThree").val());
-    var result = triangle(sideOne, sideTwo, sideThree);
 
-    sideOne = parseInt($("input#sideOne").val(""));
-    sideTwo = parseInt($("input#sideTwo").val(""));
-    sideThree = parseInt($("input#sideThree").val(""));
+    var result= triangle(sideOne, sideTwo, sideThree);
 
     $("#result").append(result);
-    event.preventDefault();
+  event.preventDefault();
   });
 });
